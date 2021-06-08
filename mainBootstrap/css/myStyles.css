@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Creepster&family=Zilla+Slab:wght@300&display=swap');
+
+.creepster {
+    font-family: 'Creepster', cursive;
+    font-family: 'Zilla Slab', serif;
+    font-weight: 30;
+}
+
+.tdimension {
+	width: 300px;
+	height: 300px;
+	margin: 20px auto 40px auto;
+	perspective: 1000px;
+}
+.tdimension a.slipknot{
+	display: block;
+	width: 100%;
+	height: 100%;
+	background: url("/mainBootstrap/img/slipknot_album.jpg");
+	background-size: cover;
+	transform-style: preserve-3d;
+	transform: rotateX(70deg);
+	transition: all 0.8s;		
+}
+
+.tdimension a.iowa{
+	display: block;
+	width: 100%;
+	height: 100%;
+	background: url("/mainBootstrap/img/iowa_album.jpg");
+	background-size: cover;
+	transform-style: preserve-3d;
+	transform: rotateX(70deg);
+	transition: all 0.8s;		
+}
+
+.tdimension a.sub_verses{
+	display: block;
+	width: 100%;
+	height: 100%;
+	background: url("/mainBootstrap/img/vol3_album.jpg");
+	background-size: cover;
+	transform-style: preserve-3d;
+	transform: rotateX(70deg);
+	transition: all 0.8s;		
+}
+
+.tdimension a.all_hope_is_gone{
+	display: block;
+	width: 100%;
+	height: 100%;
+	background: url("/mainBootstrap/img/all_hope_is_gone_album.jpg");
+	background-size: cover;
+	transform-style: preserve-3d;
+	transform: rotateX(70deg);
+	transition: all 0.8s;		
+}
+
+.tdimension a.gray_chapter{
+	display: block;
+	width: 100%;
+	height: 100%;
+	background: url("/mainBootstrap/img/gray_chapter_album.jpg");
+	background-size: cover;
+	transform-style: preserve-3d;
+	transform: rotateX(70deg);
+	transition: all 0.8s;		
+}
+
+.tdimension a.we_are_not_your_kind{
+	display: block;
+	width: 100%;
+	height: 100%;
+	background: url("/mainBootstrap/img/we_are_not_your_kind_album.png");
+	background-size: cover;
+	transform-style: preserve-3d;
+	transform: rotateX(70deg);
+	transition: all 0.8s;		
+}
+
+.tdimension:hover a {
+	transform: rotateX(20deg); 	
+}	
+.tdimension a:after {
+	content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1));    
+   	transform: rotateX(90deg);
+    transform-origin: bottom;
+}
