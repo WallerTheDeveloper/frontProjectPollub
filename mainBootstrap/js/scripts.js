@@ -39,7 +39,7 @@
 
     function isFormValid() {
         var emailRegex = /^([a-zA-Z0-9])+([.a-zA-Z0-9_-])*@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-]+)+/;
-        var latinLetterRegex = /[a-zA-Z]/;
+        var latinLetterRegex = /^[a-zA-Z\s]+$/;
         var formIsValid = true;
 
         var enteredEmail = $('#inputEmail').val();
