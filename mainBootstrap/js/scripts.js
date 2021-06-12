@@ -112,7 +112,7 @@
         fetch('./tour-dates.txt').then(function(response) {
             return response.json()
         }).then(function(data) {
-            data.forEach(tourItem => {
+            data.forEach(function(tourItem) {
                 $('.tours-list li[data-city="' + tourItem.cityKey + '"]').addClass('has-date')
                 $('.tours-list li[data-city="' + tourItem.cityKey + '"] .rounded-pill').html(tourItem.date);
             });
