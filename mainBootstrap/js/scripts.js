@@ -9,6 +9,8 @@
         if ($('body').hasClass('contact-us')) {
             initContactUs()
         }
+
+        $('#get-tour-dates').click(getTourDates)
     });
 
     function initHomePage() {
@@ -104,5 +106,16 @@
         }
 
         localStorage.setItem('contact-form-data', JSON.stringify(json))
+    }
+
+    function getTourDates() {
+        fetch('./tour-dates.txt').then(function(response) {
+            return response.json()
+        }).then(function(data) {
+            data.forEach(tourItem => {
+                $('.tours-list li[data-city="' + tourItem.cityKey + '"]').addClass('has-date')
+                $('.tours-list li[data-city="' + tourItem.cityKey + '"] .rounded-pill').html(tourItem.date);
+            });
+        })
     }
 })(jQuery)

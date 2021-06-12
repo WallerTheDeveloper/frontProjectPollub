@@ -1,0 +1,5 @@
+[
+  {"cityKey": "kyiv", "date": "11/12/2021"},
+  {"cityKey": "ams", "date": "11/12/2022"},
+  {"cityKey": "lndn", "date": "11/12/2023"}
+]

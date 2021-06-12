@@ -237,3 +237,16 @@ form .is-invalid .valid-feedback {
 form .is-invalid .invalid-feedback {
 	display: block !important;
 }
+
+/* tours page */
+.tours-list .rounded-pill {
+	display: none;
+}
+
+.tours-list .rounded-pill {
+	display: none;
+}
+
+.tours-list .has-date .rounded-pill {
+	display: block;
+}
