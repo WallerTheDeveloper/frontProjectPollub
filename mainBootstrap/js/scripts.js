@@ -26,9 +26,13 @@
             // }
 
             if (isFormValid()) {
-                alert('form is valid')
-            } else {
-                alert('has error')
+                saveFormDataToLocalStorage()
+                var dataFromJson = JSON.parse(localStorage.getItem('contact-form-data'));
+                var formDataString = 'email: ' + dataFromJson.email + '\nfirst name: ' + dataFromJson.firstName + '\nlast name: ' + dataFromJson.lastName + '\nregion: ' + dataFromJson.region + '\nsex: ' + dataFromJson.sex + '\npolicy is read: ' + dataFromJson.policyRead + '\n policy agreed: ' + dataFromJson.policyAgreed
+
+                if(confirm(formDataString)) {
+                    alert('form was submitted and reset')
+                }
             }
         });
     }
@@ -42,32 +46,63 @@
         var enteredFirstname = $('#input-first-name').val();
         var enteredLastname = $('#input-second-name').val();
 
+        // reset form validation - hide error/success messages
+        $('#contact-form .is-invalid').removeClass('is-invalid');
+        $('#contact-form .is-valid').removeClass('is-valid');
+
         // check email field
         if (!emailRegex.test(enteredEmail)) {
+            $('#inputEmail').closest('.form-input-wrp').addClass('is-invalid')
             formIsValid = false;
         }
 
         // validate first/last name
         if (!latinLetterRegex.test(enteredFirstname)) {
+            $('#input-first-name').closest('.form-input-wrp').addClass('is-invalid')
             formIsValid = false;
         }
 
         if (!latinLetterRegex.test(enteredLastname)) {
+            $('#input-second-name').closest('.form-input-wrp').addClass('is-invalid')
             formIsValid = false;
         }
 
         // check if user sex selected:
         if (!$('[name="sexChoice"]:checked').val()) {
+            $('[name="sexChoice"]').closest('.form-input-wrp').addClass('is-invalid')
             formIsValid = false;
         }
 
         // check if both checkboxes are checked:
         if (!$('#policy-read').prop('checked') || !$('#policy-agree').prop('checked')) {
+            $('#policy-read').closest('.form-input-wrp').addClass('is-invalid')
             formIsValid = false;
         }
 
         $('#contact-form').addClass('was-validated')
 
         return formIsValid;
+    }
+
+    function saveFormDataToLocalStorage() {
+        var email = $('#inputEmail').val();
+        var firstName = $('#input-first-name').val();
+        var lastName = $('#input-second-name').val();
+        var region = $('#region').val();
+        var sex = $('[name=sexChoice]:checked').val();
+        var policyRead = $('#policy-read').prop('checked');
+        var policyAgreed = $('#policy-agree').prop('checked');
+
+        var json = {
+            email: email,
+            firstName: firstName,
+            lastName: lastName,
+            region: region,
+            sex: sex,
+            policyRead: policyRead,
+            policyAgreed: policyAgreed
+        }
+
+        localStorage.setItem('contact-form-data', JSON.stringify(json))
     }
 })(jQuery)
