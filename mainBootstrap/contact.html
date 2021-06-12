@@ -16,7 +16,7 @@
     <link href="css/myStyles.css" rel="stylesheet" />
 </head>
 
-<body class="d-flex flex-column">
+<body class="d-flex flex-column contact-us">
     <main class="flex-shrink-0">
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -37,7 +37,7 @@
             </div>
         </nav>
         <header class="bg-dark py-5">
-            <img class="img-fluid" src="/img/87edc2ef-4111-4d62-af9e-b2f882d9c652.png" alt="header-img">
+            <img class="img-fluid" src="./img/87edc2ef-4111-4d62-af9e-b2f882d9c652.png" alt="header-img">
         </header>
 
         <!-- Page content-->
@@ -49,74 +49,10 @@
                         <h1 class="fw-bolder text-danger">WANT TO KNOW FIRST ABOUT SLIPKNOT BAND?</h1>
                         <p class="lead fw-normal text-muted mb-0">JUST LEAVE US YOUR CONTACT</p>
                     </div>
-                    <!--<form class="row g-3 needs-validation" novalidate>
-                        <div class="col-md-4">
-                            <label for="validationCustom01" class="form-label">First name</label>
-                            <input type="text" class="form-control" id="validationCustom01" value="Mark" required>
-                            <div class="valid-feedback">
-                                Looks good!
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <label for="validationCustom02" class="form-label">Last name</label>
-                            <input type="text" class="form-control" id="validationCustom02" value="Otto" required>
-                            <div class="valid-feedback">
-                                Looks good!
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <label for="validationCustomUsername" class="form-label">Username</label>
-                            <div class="input-group has-validation">
-                                <span class="input-group-text" id="inputGroupPrepend">@</span>
-                                <input type="text" class="form-control" id="validationCustomUsername"
-                                    aria-describedby="inputGroupPrepend" required>
-                                <div class="invalid-feedback">
-                                    Please choose a username.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <label for="validationCustom03" class="form-label">City</label>
-                            <input type="text" class="form-control" id="validationCustom03" required>
-                            <div class="invalid-feedback">
-                                Please provide a valid city.
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <label for="validationCustom04" class="form-label">State</label>
-                            <select class="form-select" id="validationCustom04" required>
-                                <option selected disabled value="">Choose...</option>
-                                <option>...</option>
-                            </select>
-                            <div class="invalid-feedback">
-                                Please select a valid state.
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <label for="validationCustom05" class="form-label">Zip</label>
-                            <input type="text" class="form-control" id="validationCustom05" required>
-                            <div class="invalid-feedback">
-                                Please provide a valid zip.
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-                                <label class="form-check-label" for="invalidCheck">
-                                    Agree to terms and conditions
-                                </label>
-                                <div class="invalid-feedback">
-                                    You must agree before submitting.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <button class="btn btn-primary" type="submit">Submit form</button>
-                        </div>
-                    </form>-->
+
                     <div class="row gx-5 justify-content-center">
                         <div class="col-lg-8 col-xl-6">
-                            <form class="row g-3 needs-validation" novalidate>
+                            <form class="row g-3 needs-validation" id="contact-form" novalidate>
                                 <div class="form-floating mb-3">
                                     <input class="form-control" id="inputEmail" type="email" />
                                     <label class="form-label" for="inputEmail">Enter email address</label>
@@ -169,32 +105,32 @@
                                 </div>
 
                                 <div class="row">
-                                    <legend class="col-form-label col-sm-2 pt-0">Sex:</legend>
-                                    <div class="col-sm-10">
+                                    <legend class="col-form-label col-sm-8 pt-0">Sex:</legend>
+                                    <div class="col-sm-4">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" id="maleRadio" name="sexChoice"
-                                                value="male" required>
+                                            <input class="form-check-input" type="radio" name="sexChoice"
+                                                value="male">
                                             <label for="maleRadio">Male</label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" id="femaleRadio"
-                                                name="sexChoice" value="Female" required>
+                                            <input class="form-check-input" type="radio"
+                                                name="sexChoice" value="Female">
                                             <label for="femaleRadio">Female</label>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="row">
-                                    <legend class="col-form-label col-sm-2 pt-0">
-                                        Donate?
+                                    <legend class="col-form-label col-sm-8 pt-0">
+                                        Have you read and agree company policy?
                                     </legend>
-                                    <div class="col-sm-10">
+                                    <div class="col-sm-4">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox"> Yes
+                                            <input class="form-check-input" id="policy-read" type="checkbox"> I've read
                                         </div>
 
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox"> No
+                                            <input class="form-check-input" id="policy-agree" type="checkbox"> I agree
                                         </div>
                                     </div>
                                 </div>
@@ -222,6 +158,7 @@
         </div>
     </footer>
     <!-- Bootstrap core JS-->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
     <script src="js/scripts.js"></script>

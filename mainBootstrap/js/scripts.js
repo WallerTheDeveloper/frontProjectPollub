@@ -1,64 +1,73 @@
-/*!
-* Start Bootstrap - Modern Business v5.0.0 (https://startbootstrap.com/template-overviews/modern-business)
-* Copyright 2013-2021 Start Bootstrap
-* Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-modern-business/blob/master/LICENSE)
-*/
-// This file is intentionally blank
-// Use this file to add JavaScript to your project
-
-// Example starter JavaScript for disabling form submissions if there are invalid fields
-
-let email = document.getElementById("inputEmail").value;
-let firstName = document.getElementById("input-first-name").value;
-let secondName = document.getElementById("input-second-name").value;
-/*
-function checkInput(input_id, regex) {
-    //Funkcja sprawdza czy wartość wprowadzona do pola tekstowego
-    //pasuje do wzorca zdefiniowanego za pomocą wyrażenia regularnego
-    //Parametry funkcji:
-    //pole_id - id sprawdzanego pola tekstowego
-    //obiektRegex - wyrażenie regularne
-    //---------------------------------
-    var inputObject = document.getElementById(input_id);
-    if (!regex.test(inputObject.value)) return (false);
-    else return (true);
-}
-
-function emailValidation() {
-    emailObject = /^([a-zA-Z0-9])+([.a-zA-Z0-9_-])*@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-]+)+/;
-    if (!checkInput("inputEmail", emailObject)) {
-        document.getElementById("email_error").innerHTML = "Wpisz poprawnie email!";
-    } else document.getElementById("email_error").innerHTML = "";
-}
-
-function checkAll() {
-    return emailValidation();
-}
-*/
-
-(function () {
+(function($) {
     'use strict'
 
-    // Fetch all the forms we want to apply custom Bootstrap validation styles to
-    var forms = document.querySelectorAll('.needs-validation')
+    $(document).ready(function () {
+        if ($('body').hasClass('homepage')) {
+            initHomePage()
+        }
 
-    // Loop over them and prevent submission
-    Array.prototype.slice.call(forms)
-        .forEach(function (form) {
-            form.addEventListener('submit', function (event) {
-                if (!form.checkValidity()) {
-                    event.preventDefault()
-                    event.stopPropagation()
-                }
+        if ($('body').hasClass('contact-us')) {
+            initContactUs()
+        }
+    });
 
-                form.classList.add('was-validated')
-            }, false)
+    function initHomePage() {
+        $('.carousel').carousel({
+            interval: 3000
         })
-})()
+    }
 
+    function initContactUs() {
+        $('#contact-form').submit(function(event) {
+            event.preventDefault();
+            // if (!$('#contact-form').checkValidity()) {
+            //     event.preventDefault()
+            //     event.stopPropagation()
+            // }
 
-$(document).ready(function () {
-    $('.carousel').carousel({
-        interval: 3000
-    })
-});
+            if (isFormValid()) {
+                alert('form is valid')
+            } else {
+                alert('has error')
+            }
+        });
+    }
+
+    function isFormValid() {
+        var emailRegex = /^([a-zA-Z0-9])+([.a-zA-Z0-9_-])*@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-]+)+/;
+        var latinLetterRegex = /[a-zA-Z]/;
+        var formIsValid = true;
+
+        var enteredEmail = $('#inputEmail').val();
+        var enteredFirstname = $('#input-first-name').val();
+        var enteredLastname = $('#input-second-name').val();
+
+        // check email field
+        if (!emailRegex.test(enteredEmail)) {
+            formIsValid = false;
+        }
+
+        // validate first/last name
+        if (!latinLetterRegex.test(enteredFirstname)) {
+            formIsValid = false;
+        }
+
+        if (!latinLetterRegex.test(enteredLastname)) {
+            formIsValid = false;
+        }
+
+        // check if user sex selected:
+        if (!$('[name="sexChoice"]:checked').val()) {
+            formIsValid = false;
+        }
+
+        // check if both checkboxes are checked:
+        if (!$('#policy-read').prop('checked') || !$('#policy-agree').prop('checked')) {
+            formIsValid = false;
+        }
+
+        $('#contact-form').addClass('was-validated')
+
+        return formIsValid;
+    }
+})(jQuery)
