@@ -218,3 +218,22 @@ body {
 	opacity: 0.5;
 	z-index: 1;
 }
+
+
+
+/* contact form */
+form .is-invalid .valid-feedback {
+	display: none !important;
+}
+
+form .is-invalid .invalid-feedback {
+	display: block !important;
+}
+
+form .is-invalid .valid-feedback {
+	display: none !important;
+}
+
+form .is-invalid .invalid-feedback {
+	display: block !important;
+}
