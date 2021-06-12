@@ -1,4 +1,4 @@
-(function($) {
+(function ($) {
     'use strict'
 
     $(document).ready(function () {
@@ -20,7 +20,7 @@
     }
 
     function initContactUs() {
-        $('#contact-form').submit(function(event) {
+        $('#contact-form').submit(function (event) {
             event.preventDefault();
             // if (!$('#contact-form').checkValidity()) {
             //     event.preventDefault()
@@ -32,7 +32,7 @@
                 var dataFromJson = JSON.parse(localStorage.getItem('contact-form-data'));
                 var formDataString = 'email: ' + dataFromJson.email + '\nfirst name: ' + dataFromJson.firstName + '\nlast name: ' + dataFromJson.lastName + '\nregion: ' + dataFromJson.region + '\nsex: ' + dataFromJson.sex + '\npolicy is read: ' + dataFromJson.policyRead + '\n policy agreed: ' + dataFromJson.policyAgreed
 
-                if(confirm(formDataString)) {
+                if (confirm(formDataString)) {
                     alert('form was submitted and reset')
                 }
             }
@@ -40,8 +40,8 @@
     }
 
     function isFormValid() {
-        var emailRegex = /^([a-zA-Z0-9])+([.a-zA-Z0-9_-])*@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-]+)+/;
-        var latinLetterRegex = /^[a-zA-Z\s]+$/;
+        var emailRegex = /^([a-zA-Z0-9])+([.a-zA-Z0-9_-])*@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-]+)+$/;
+        var latinLetterRegex = /^[a-z ,.'-]+$/i
         var formIsValid = true;
 
         var enteredEmail = $('#inputEmail').val();
